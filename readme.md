@@ -13,7 +13,8 @@
 
 使用前应安装textlive的`ctex`与`gbt7714-bibtex-style`包
 
-如果你正在使用NixOs/Nix且安装了direnv，可直接通过`direnv allow`激活环境🤓☝️
+对于 NixOS/Nix-Darwin 用户，安装缺失字体后，通过 `nix develop` 激活环境即可，如果已经配置了 `direnv`，代码目录下执行 `direnv allow` 即可激活环境🤓☝️
+PS: 绝大多数字体可以从 NUR 中获取(rewine.ttf-ms-win10)，黑体和楷体_GB2312网上找了以后用 Overlay 覆写或者自己打包安装即可
 
 在需要使用`section*`时总是应该按照以下方法使用
 ```Tex

@@ -1,15 +1,15 @@
 \documentclass[12pt,a4paper,AutoFakeBold]{article}
 \usepackage{graphicx}
-\usepackage[fontset=none]{ctex}
+\usepackage[fontset=none,UTF8,heading=true]{ctex}
 % \usepackage{CJK}
 \usepackage{indentfirst}
 %\graphicspath{{chapter/}{figures/}}
 \usepackage{amsmath}%数学
 
 \usepackage{fontspec}
-\setmainfont{Liberation Serif} % 设置默认英文字体为Liberation Serif
-\setsansfont{Liberation Sans} % 设置无衬线英文字体
-\setmonofont{Liberation Mono} % 设置等宽英文字体
+\setmainfont{Times New Roman} % 设置默认英文字体为 Times New Roman
+\setsansfont{Times New Roman} % 设置无衬线英文字体
+\setmonofont{Times New Roman} % 设置等宽英文字体
 
 \setCJKmainfont[BoldFont={SimHei}]{SimSun} % 默认使用宋体，加粗时使用黑体
 \setCJKsansfont{SimHei} % 设置无衬线字体为黑体
@@ -62,7 +62,7 @@
 
 \usepackage{titlesec}%修改标题格式宏包
 % 设置section标题为三号黑体居中
-\titleformat{\section}{\centering\zihao{3}\hei\bfseries}{\arabic{section}.}{0.5em}{}
+\titleformat{\section}{\centering\zihao{3}\hei\bfseries}{第\chinese{section}章}{0.5em}{}
 % 设置subsection标题为小四号黑体
 \titleformat{\subsection}{\zihao{-4}\hei\bfseries}{\arabic{section}.\arabic{subsection}}{0.5em}{}
 % 设置subsubsection标题为小四号黑体
@@ -122,6 +122,15 @@
 
 \usepackage{gbt7714}%参考文献格式 https://github.com/zepinglee/gbt7714-bibtex-style/tree/master
 \bibliographystyle{gbt7714-numerical}
+
+%% 设置节号样式
+\ctexset{
+    section = {
+        format+ = \raggedright\hei\zihao{3}, % 设定字体格式
+        name = {第,章},  % 定义章节名称格式，如“第一章”
+        number = \chinese{section}  % 章节号使用中文数字
+    }
+}
 
 \begin{document}
 
@@ -194,7 +203,7 @@ X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X 
 }
 }\par
 
-\vspace{1ex}
+\vspace{22pt}
 \noindent{}{\zihao{4}\textbf{关键词\qquad}}{\zihao{-4}\song {
 关键词1；关键词2
 } }\par
@@ -210,7 +219,7 @@ X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X 
 }}\par
 	
 % 英文关键词
-\vspace{1ex}
+\vspace{22pt}
 \noindent{}{\zihao{4}\textbf{KEY WORDS\qquad}}{\zihao{-4}{
 keywords1; keywords2
 }}\par
@@ -227,7 +236,7 @@ keywords1; keywords2
 	\tableofcontents
 }
 
-\vspace{5cm}
+\newpage
 
 %% 下面是正文！
 {
@@ -236,18 +245,7 @@ keywords1; keywords2
 \song% 设置宋体
 \zihao{-4} % 设置小四号字体
 
-
-% 如果要使用section*，则需要手动添加到目录中，按照以下办法
-\phantomsection %用以修补超链接在section前以保证能跳到section
-\section*{引\quad 言}
-\addcontentsline{toc}{section}{引\quad 言} %把标题塞进目录
-
-
-引言部分
-
-
-\newpage
-\setcounter{section}{1}
+\setcounter{section}{0} % 重置章节计数器
 \section{绪论}
 
 

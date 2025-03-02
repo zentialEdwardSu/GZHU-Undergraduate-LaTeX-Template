@@ -1,26 +1,28 @@
 {
   description = "A Nix-flake-based LaTeX development environment";
 
-  inputs.nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-  outputs = { self, nixpkgs }:
-    let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
-      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
-        pkgs = import nixpkgs { inherit system; };
-      });
-    in
-    {
-      devShells = forEachSupportedSystem ({ pkgs }: {
-        default = pkgs.mkShell {
-          packages = with pkgs; [
-            texlive.combined.scheme-full
-            texlivePackages.biblatex-gb7714-2015
-            texlivePackages.ctex
-            texlab
-            tectonic
-          ];
-        };
-      });
-    };
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+  outputs = { self, nixpkgs, flake-utils }:
+    flake-utils.lib.eachDefaultSystem
+      (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+          };
+          tex = pkgs.texlive.combined.scheme-full;
+        in
+        with pkgs;
+        {
+          devShells.default = mkShell {
+            buildInputs = [ 
+              tex
+              texlab
+              tectonic
+            ];
+          };
+        }
+      );
 }
