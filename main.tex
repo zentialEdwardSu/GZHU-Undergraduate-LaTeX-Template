@@ -1,135 +1,8 @@
 \documentclass[12pt,a4paper,AutoFakeBold]{article}
-\usepackage{graphicx}
-\usepackage[fontset=none,UTF8,heading=true]{ctex}
-% \usepackage{CJK}
-\usepackage{indentfirst}
-%\graphicspath{{chapter/}{figures/}}
-\usepackage{amsmath}%数学
-
-\usepackage{fontspec}
-\setmainfont{Times New Roman} % 设置默认英文字体为 Times New Roman
-\setsansfont{Times New Roman} % 设置无衬线英文字体
-\setmonofont{Times New Roman} % 设置等宽英文字体
-
-\setCJKmainfont[BoldFont={SimHei}]{SimSun} % 默认使用宋体，加粗时使用黑体
-\setCJKsansfont{SimHei} % 设置无衬线字体为黑体
-\setCJKfamilyfont{song}{SimSun} % 设置宋体
-\setCJKfamilyfont{hei}{SimHei} % 设置黑体
-\setCJKfamilyfont{kai}{KaiTi_GB2312} % 设置楷体
-
-\newcommand{\hei}{\CJKfamily{hei}}
-\newcommand{\kai}{\CJKfamily{kai}}
-\newcommand{\song}{\CJKfamily{song}}
-
-%\usepackage[colorlinks,linkcolor=red]{hyperref}%超链接
-
-\usepackage{fancyhdr}  %使用fancyhdr包自定义页眉页脚
-%\pagestyle{empty}
-% \pagestyle{fancy}
-\pagestyle{plain}%没有页眉，页脚放页数
-
-\usepackage{titlesec}%设置章节标题与正文间距为2行
-\titlespacing{\section}{0pt}{0pt}{2em}
-
-\usepackage{enumerate}%项目编号
-
-\renewcommand{\figurename}{图}%将figure改为图
-\renewcommand{\tablename}{表}
-
-\usepackage{caption}  % 使用更现代的caption包
-\DeclareCaptionFormat{myformat}{\song\zihao{5}#1#2\quad#3}
-\captionsetup{format=myformat, labelsep=none}
-% \renewcommand{\captionlabeldelim}{}
-\renewcommand{\thetable}{\thesection{}.\arabic{table}}%表格索引该为按照章节
-\renewcommand {\thefigure} {\thesection{}.\arabic{figure}}%图片索引该为按照章节
-
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0.4pt}
-\lhead{}
-\chead{}
-\rhead{}
-\lfoot{}
-\cfoot{\thepage}
-\rfoot{}
-\newcommand{\mkls}{\linespread{1.7}\selectfont}
-
-% 为section 添加引导线
-\usepackage{tocloft}
-\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
-
-
-\usepackage{booktabs}%表格用
-
-\usepackage{titlesec}%修改标题格式宏包
-% 设置section标题为三号黑体居中
-\titleformat{\section}{\centering\zihao{3}\hei\bfseries}{第\chinese{section}章}{0.5em}{}
-% 设置subsection标题为小四号黑体
-\titleformat{\subsection}{\zihao{-4}\hei\bfseries}{\arabic{section}.\arabic{subsection}}{0.5em}{}
-% 设置subsubsection标题为小四号黑体
-\titleformat{\subsubsection}{\zihao{-4}\hei\bfseries}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}{0.5em}{}
-
-\usepackage{multirow}%跨行表格
-\usepackage{abstract}%摘要
-\usepackage{setspace}   %行间距的宏包
-\usepackage{makecell}%表格竖线连续
-
-\def\I{\vrule width1.2pt}
-%!\I 就可以代替| 来画表格了
-
-%可固定下划线长度
-\makeatletter
-\newcommand\dlmu[2][4cm]{\hskip1pt\underline{\hb@xt@ #1{\hss#2\hss}}\hskip3pt}
-\makeatother
-
-\usepackage{float}%可以用于禁止浮动体浮动
-
-%目录超链接
-\usepackage[colorlinks,linkcolor=black,anchorcolor=blue,citecolor=black]{hyperref}
-
-\usepackage{listings}%可以插入代码
-\usepackage{xcolor}%语法高亮支持
-\lstset{
-    basicstyle          =   \sffamily,          % 基本代码风格
-    keywordstyle        =   \bfseries,          % 关键字风格
-    commentstyle        =   \rmfamily\itshape,  % 注释的风格，斜体
-    stringstyle         =   \ttfamily,  % 字符串风格
-    flexiblecolumns,    
-    numbers             =   left,   % 行号的位置在左边
-    showspaces          =   false,  % 是否显示空格
-    numberstyle         =   \zihao{-5}\ttfamily,    % 行号的样式，小五号，tt等宽字体
-    showstringspaces    =   false,
-    captionpos          =   t,      % 这段代码的名字所呈现的位置，t指的是top上面
-    frame               =   lrtb,   % 显示边框
-}
-
-%建议针对特定代码使用特定的风格，以保证最好的观感
-
-%代码格式
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
-
-%目录标题间距
-\setlength{\cftaftertoctitleskip}{3em}
-
-%设置页面格式
-\usepackage[left=3.0cm, right=2.6cm, top=2.54cm, bottom=2.54cm]{geometry}
-\usepackage{setspace}
-
-\usepackage{gbt7714}%参考文献格式 https://github.com/zepinglee/gbt7714-bibtex-style/tree/master
-\bibliographystyle{gbt7714-numerical}
-
-%% 设置节号样式
-\ctexset{
-    section = {
-        format+ = \raggedright\hei\zihao{3}, % 设定字体格式
-        name = {第,章},  % 定义章节名称格式，如“第一章”
-        number = \chinese{section}  % 章节号使用中文数字
-    }
-}
+\usepackage{gzhubenke}
 
 \begin{document}
-
+\pagenumbering{gobble} 
 
 %% 封面部分
 \begin{titlepage}
@@ -137,7 +10,7 @@
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=1.25]{assets/gzhu.png} %1.png是图片文件的相对路径
+	\includegraphics[scale=1.25]{assets/gzhu.png}
 \end{figure}
 \vspace{0.15cm}	
 \centering
@@ -146,86 +19,95 @@
 
 \vspace{2.5cm}
 
-\begin{picture}(0,0)
-    % 使用堆叠的方式显示竖排文字
-    \put(-220,-150){\zihao{3}\kai 教}
-    \put(-220,-185){\zihao{3}\kai 务}
-    \put(-220,-220){\zihao{3}\kai 处}
-    \put(-220,-255){\zihao{3}\kai 制}
-\end{picture}
+% \begin{picture}(0,0)
+%     \put(-220,-150){\zihao{3}\kai 教}
+%     \put(-220,-185){\zihao{3}\kai 务}
+%     \put(-220,-220){\zihao{3}\kai 处}
+%     \put(-220,-255){\zihao{3}\kai 制}
+% \end{picture}
 
 \begin{flushleft}
 	\hspace*{-6em}
 	\begin{minipage}{\linewidth}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 课题名称}\quad{\zihao{3} \kai \dlmu[9.5cm]{latex模板1234}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 课题名称}\quad{\zihao{3} \kai
+        \begin{minipage}[b]{9.5cm}
+        \centering
+        % 太长这样换行
+        % {这里是课题名称}
+        \underline{\hbox to 9.5cm{\hfil XZXXXXXXXX\hfil}}
+        \end{minipage}}\par}
 		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 学\qquad 院}\quad{\zihao{3} \kai \dlmu[9.5cm]{XXXXXX学院}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 学\qquad 院}\quad{\zihao{3} \kai \dlmu[9.5cm]{这里是学院}}\par}
 		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 专\qquad 业}\quad{\zihao{3} \kai\dlmu[9.5cm]{XXXXX}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 专\qquad 业}\quad{\zihao{3} \kai\dlmu[9.5cm]{这里是专业}}\par}
 		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 班级名称}\quad{\zihao{3} \kai\dlmu[9.5cm]{XXXXXXX}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 班级名称}\quad{\zihao{3} \kai\dlmu[9.5cm]{      }}\par}
 		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 学生姓名}\quad{\zihao{3} \kai\dlmu[9.5cm]{这是人名}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 学生姓名}\quad{\zihao{3} \kai\dlmu[9.5cm]{     }}\par}
 		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 学\qquad 号}\quad{\zihao{3} \kai\dlmu[9.5cm]{000009000000}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 学\qquad 号}\quad{\zihao{3} \kai\dlmu[9.5cm]{     }}\par}
 		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 指导老师}\quad{\zihao{3} \kai\dlmu[9.5cm]{这也是人名}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 指导老师}\quad{\zihao{3} \kai\dlmu[9.5cm]{    }}\par}
 		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 完成日期}\quad{\zihao{3} \kai\dlmu[9.5cm]{*************}}\par}
+		{{\kai \zihao{-2} \qquad\qquad\qquad 完成日期}\quad{\zihao{3} \kai\dlmu[9.5cm]{      }}\par}
 	\end{minipage}
 \end{flushleft}
+
+\vspace{3cm}
+{\kai \zihao{3}{教\quad 务\quad 处\quad 制}}
 
 \vspace{4cm}
 \end{titlepage}
 
 % 摘要与关键词
+% \pagenumbering{Roman}  % 使用罗马数字页码
+% \setcounter{page}{1}   % 页码从1开始
 { 
 \mkls
 \renewcommand{\abstractname}{\scriptsize}
+% \phantomsection
+% \addcontentsline{toc}{section}{摘要} 
 %% 摘要和关键词部分
 \begin{center}
-	{\hei\zihao{3}\textbf{*************系统设计}}\par
-	{\zihao{-4}\song XXXX ~~ 专业 ~~ XXXX班 ~~ 这是人名 \par 
-		指导教师：这也是人名
+	{\hei\zihao{3}\textbf{这里是论文标题}}\par
+	{\zihao{-4}\song XXXXXXXXXX ~~ 专业 ~~ XXXXX班 ~~ XXX \par 
+		指导教师：XXXX
 	}
 \end{center}
 
 
 \begin{onecolabstract}
 \noindent{}{\zihao{4}\textbf{摘要\qquad}}{\song \zihao{-4}{
-摘要内容（小四号宋体）论文摘要以浓缩的形式概括研究课题的内容，中文摘要在200字左右。X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X。
-		
-X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X。		
+	这是摘要
 }
 }\par
 
 \vspace{22pt}
 \noindent{}{\zihao{4}\textbf{关键词\qquad}}{\zihao{-4}\song {
-关键词1；关键词2
+关键字1，关键字2
 } }\par
 \end{onecolabstract}
 
-
+\newpage
 \begin{onecolabstract}
+% \phantomsection
+% \addcontentsline{toc}{section}{ABSTRACT} 
 \noindent{}{\zihao{4} \textbf{ABSTRACT\qquad}}{\zihao{-4}{
-（四号 Times New Roman  字体加粗,空两格）This is abstract in English外文摘要以200个左右实词为宜，摘要内容（小四号Times New Roman字体）每段开头留四个空字符X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X。
-
-X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X X 
-
+Abstract here
 }}\par
 	
 % 英文关键词
 \vspace{22pt}
-\noindent{}{\zihao{4}\textbf{KEY WORDS\qquad}}{\zihao{-4}{
-keywords1; keywords2
+\noindent{}{\zihao{4}\textbf{KEYWORDS\qquad}}{\zihao{-4}{
+Keyword1, Keyword2
 }}\par
 \end{onecolabstract}
 }
 
 
 \newpage
-
-
+% \phantomsection
+% \addcontentsline{toc}{section}{目录} 
 %% 目录部分
 \renewcommand{\contentsname}{\centerline{\zihao{-2}\textbf{目录}}}
 \linespread{1.2}\selectfont{
@@ -234,7 +116,9 @@ keywords1; keywords2
 
 \newpage
 
-%% 下面是正文！
+%% 下面是正文
+\pagenumbering{arabic}  % 使用阿拉伯数字页码
+\setcounter{page}{1}  
 {
 % \setlength{\baselineskip}{23pt} 
 \mkls% 设置行间距
@@ -242,91 +126,53 @@ keywords1; keywords2
 \zihao{-4} % 设置小四号字体
 
 \setcounter{section}{0} % 重置章节计数器
-\section{绪论}
+\section{前言}
+\label{sec:introduction}
+\subsection{研究背景与意义}
+\label{sec:background}
+很有意义
+\subsection{国内外研究现状}
+很有研究，比如\cite{beckSurveyMetaReinforcementLearning2023}
+\subsection{本文的主要贡献}
+没什么贡献，如\refig{fig:gzhu}所示
 
+\subsection{论文组织结构}
 
-\subsection{课题背景}
-
-前景很好
-\cite{beckSurveyMetaReinforcementLearning2023}
-
-\subsection{国内外研究进展情况}
-非常不多见
-
-\lstinputlisting[
-    % style       =   Rust,
-    caption     =   {\bf udtree.rs},
-    label       =   {udtree.rs}
-]{assets/examplecode.rs}
-
-\begin{figure}[H] % use H to force the figure to be placed here
+\begin{figure}[htbp] % use H to force the figure to be placed here
 	\centering
-	\includegraphics[width=0.5\textwidth]{assets/gzhu.png}
-	\caption{这是一张图片}
-	\label{fig:1}
+	\includegraphics[width=0.8\textwidth]{assets/gzhu.png}
+	\caption{图片}
+	\label{fig:gzhu}
 \end{figure}
 
-\subsection{本课题的目的及意义}
-本课题的创新点是让没写过论文的人写论文
+\section{提供了一些简单的宏}
 
-\subsection{总体研究思路}
+使用`\verb|\refsec{sec:background}|`可以引用\refsec{sec:introduction}，使用`\verb|\refsubsec{sec:background}|`可以引用\refsubsec{sec:background}，使用`\verb|\refig{fig:gzhu}|`可以引用\refig{fig:gzhu}，使用`\verb|\refeq{eq:esv}|`可以引用公式\refeq{eq:esv}。
 
-总体的方向是抓住方向的总体
-
-\begin{table}[htbp]
-	\centering
-	\caption{不同算法的性能比较}
-	\begin{tabular}{|c|c|c|c|c|}
-	  \hline
-	  \multirow{2}{*}{\textbf{算法}} & \multicolumn{2}{c|}{\textbf{时间复杂度}} & \multicolumn{2}{c|}{\textbf{空间复杂度}} \\
-	  \cline{2-5}
-	  & 平均情况 & 最坏情况 & 平均情况 & 最坏情况 \\
-	  \hline
-	  快速排序 & $O(n\log n)$ & $O(n^2)$ & $O(\log n)$ & $O(n)$ \\
-	  \hline
-	  归并排序 & $O(n\log n)$ & $O(n\log n)$ & $O(n)$ & $O(n)$ \\
-	  \hline
-	  堆排序 & $O(n\log n)$ & $O(n\log n)$ & $O(1)$ & $O(1)$ \\
-	  \hline
-	  \multicolumn{5}{|c|}{\textbf{高级算法}} \\
-	  \hline
-	  基数排序 & \multicolumn{2}{c|}{$O(nk)$} & \multicolumn{2}{c|}{$O(n+k)$} \\
-	  \hline
-	\end{tabular}
-	\label{tab:algorithm_comparison}
-\end{table}
-
-
-% 以下是结论
-\newpage
-\phantomsection
-\section*{结 \quad 论}
-\addcontentsline{toc}{section}{结\quad 论}
-\newcounter{结论编号}   %创建一个计数器，这个计数用于给结论章节编号                     
-\setcounter{结论编号}{\value{section}} %计数器就像变量一样
-\addtocounter{结论编号}{1}
-
+\begin{equation}
+    \mathbf{e}(\phi,\bar{M}) = [1, e^{j \pi \phi},...,e^{j (\bar{M} - 1) \pi \phi}]^T 
+    \label{eq:esv}
+\end{equation}
 
 \newpage
-\phantomsection
-\section*{致 \quad 谢}
-% \addcontentsline{toc}{section}{致谢\tiny{\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad.\quad}}
-\addcontentsline{toc}{section}{致\quad 谢}
-我真的谢谢你
-\par
-\vspace{5ex}
-\rightline{\zihao{3}{这是人名\quad\qquad}}
-\rightline{二O一九年五月十九日于广州}
-\newpage
-}
-
-
-
 %参考文献
 \renewcommand\refname{参考文献}
 \label{sec:references}
 \phantomsection
 \addcontentsline{toc}{section}{参考文献}
 \bibliography{references}
+
+
+\newpage
+\phantomsection
+\section*{致 \quad 谢}
+\addcontentsline{toc}{section}{致 谢}
+我真的谢谢
+\par
+\vspace{5ex}
+\rightline{\zihao{3}{XXXX\quad\qquad}}
+\rightline{二O二五年五月二日于广州}
+
+}
 
 \end{document}
