@@ -46,7 +46,7 @@ if [ "$BACKUP_CREATED" = true ]; then
         exit -1
     fi
     
-    git add main.tex ReferencesofThesis.bib gzhubenke.sty assets/
+    git add main.tex references.bib gzhubenke.sty assets/
     
     COMMIT_MESSAGE="${MONTH}-${DAY}-V${NEW_VERSION}"
     git commit -s -m  "$COMMIT_MESSAGE"
