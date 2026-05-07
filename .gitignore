@@ -6,5 +6,8 @@
 *.bbl
 *.blg
 *.pdf
+*.xdv
+*.fdb_latexmk
+*.fls
 
 .direnv

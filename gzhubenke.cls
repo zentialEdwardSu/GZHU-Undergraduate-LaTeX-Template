@@ -1,9 +1,54 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{gzhubenke}[2025/05/26 本科论文模板样式]
+\ProvidesClass{gzhubenke}[2025/05/26 广州大学本科论文模板]
+
+\newif\ifgzhubenke@autofakebold
+
+\def\gzhubenke@ctexfontset{fandol}
+\def\gzhubenke@latinmain{TeX Gyre Termes}
+\def\gzhubenke@latinsans{TeX Gyre Heros}
+\def\gzhubenke@latinmono{TeX Gyre Cursor}
+\def\gzhubenke@cjksong{}
+\def\gzhubenke@cjkhei{}
+\def\gzhubenke@cjkkai{}
+\def\gzhubenke@cjkmono{}
+
+\newcommand{\gzhubenke@parse@fontset}[1]{%
+    \expandafter\gzhubenke@parse@fontset@aux#1\@nil
+}
+
+\def\gzhubenke@parse@fontset@aux#1=#2\@nil{%
+    \edef\gzhubenke@ctexfontset{#2}%
+}
+
+\DeclareOption{10pt}{\PassOptionsToClass{10pt}{article}}
+\DeclareOption{11pt}{\PassOptionsToClass{11pt}{article}}
+\DeclareOption{12pt}{\PassOptionsToClass{12pt}{article}}
+\DeclareOption{a4paper}{\PassOptionsToClass{a4paper}{article}}
+\DeclareOption{letterpaper}{\PassOptionsToClass{letterpaper}{article}}
+\DeclareOption{AutoFakeBold}{\gzhubenke@autofakeboldtrue}
+\DeclareOption*{%
+    \@expandtwoargs\in@{fontset=}{\CurrentOption}%
+    \ifin@
+        \gzhubenke@parse@fontset{\CurrentOption}%
+    \else
+        \PassOptionsToClass{\CurrentOption}{article}%
+    \fi
+}
+\ExecuteOptions{12pt,a4paper,AutoFakeBold}
+\ProcessOptions\relax
+
+\LoadClass{article}
 
 % 加载需要的宏包
 \RequirePackage{graphicx}
-\RequirePackage[fontset=none,UTF8,heading=true]{ctex}
+\edef\gzhubenke@load@ctex{%
+    \noexpand\RequirePackage[fontset=\gzhubenke@ctexfontset,UTF8,heading=true]{ctex}%
+}
+\gzhubenke@load@ctex
+\RequirePackage{keyval}
+\ifgzhubenke@autofakebold
+    \xeCJKsetup{AutoFakeBold=true}
+\fi
 \RequirePackage{indentfirst}
 \RequirePackage{amsmath}
 \RequirePackage{bm}
@@ -29,19 +74,45 @@
 \RequirePackage{gbt7714}
 
 % 字体设置
-\setmainfont{Times New Roman}
-\setsansfont{Times New Roman}
-\setmonofont{Times New Roman}
+\setmainfont{\gzhubenke@latinmain}
+\setsansfont{\gzhubenke@latinsans}
+\setmonofont{\gzhubenke@latinmono}
 
-\setCJKmainfont[BoldFont={SimHei}]{SimSun}
-\setCJKsansfont{SimHei}
-\setCJKfamilyfont{song}{SimSun}
-\setCJKfamilyfont{hei}{SimHei}
-\setCJKfamilyfont{kai}{KaiTi_GB2312}
+\define@key{gzhubenke}{latin-main}{\def\gzhubenke@latinmain{#1}}
+\define@key{gzhubenke}{latin-sans}{\def\gzhubenke@latinsans{#1}}
+\define@key{gzhubenke}{latin-mono}{\def\gzhubenke@latinmono{#1}}
+\define@key{gzhubenke}{cjk-song}{\def\gzhubenke@cjksong{#1}}
+\define@key{gzhubenke}{cjk-hei}{\def\gzhubenke@cjkhei{#1}}
+\define@key{gzhubenke}{cjk-kai}{\def\gzhubenke@cjkkai{#1}}
+\define@key{gzhubenke}{cjk-mono}{\def\gzhubenke@cjkmono{#1}}
+\define@key{gzhubenke}{fontset}{\ClassError{gzhubenke}{`fontset' must be used as a class option}{Use \string\documentclass[fontset=#1]\string{gzhubenke\string}.}}
 
-\newcommand{\hei}{\CJKfamily{hei}}
-\newcommand{\kai}{\CJKfamily{kai}}
-\newcommand{\song}{\CJKfamily{song}}
+\newcommand{\gzhubenke@ifempty}[3]{%
+    \if\relax\detokenize{#1}\relax
+        #2%
+    \else
+        #3%
+    \fi
+}
+
+\newcommand{\gzhubenke@apply@font@overrides}{%
+    \setmainfont{\gzhubenke@latinmain}%
+    \setsansfont{\gzhubenke@latinsans}%
+    \setmonofont{\gzhubenke@latinmono}%
+    \gzhubenke@ifempty{\gzhubenke@cjksong}{}{\setCJKmainfont{\gzhubenke@cjksong}\setCJKfamilyfont{zhsong}{\gzhubenke@cjksong}}%
+    \gzhubenke@ifempty{\gzhubenke@cjkhei}{}{\setCJKsansfont{\gzhubenke@cjkhei}\setCJKfamilyfont{zhhei}{\gzhubenke@cjkhei}}%
+    \gzhubenke@ifempty{\gzhubenke@cjkkai}{}{\setCJKfamilyfont{zhkai}{\gzhubenke@cjkkai}}%
+    \gzhubenke@ifempty{\gzhubenke@cjkmono}{}{\setCJKmonofont{\gzhubenke@cjkmono}}%
+}
+
+\newcommand{\gzhusetup}[1]{%
+    \setkeys{gzhubenke}{#1}%
+    \gzhubenke@apply@font@overrides
+}
+
+\newcommand{\hei}{\CJKfamily{zhhei}}
+\newcommand{\kai}{\CJKfamily{zhkai}}
+\newcommand{\song}{\CJKfamily{zhsong}}
 
 % 页眉页脚设置
 \pagestyle{plain}

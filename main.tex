@@ -1,178 +1,176 @@
-\documentclass[12pt,a4paper,AutoFakeBold]{article}
-\usepackage{gzhubenke}
+% !TEX program = latexmk
+% !TEX options = -xelatex -synctex=1 -interaction=nonstopmode -file-line-error
+\documentclass[fontset=windows]{gzhubenke}
+
+\newcommand{\thesistitle}{XZXXXXXXXX}
+\newcommand{\college}{这里是学院}
+\newcommand{\major}{这里是专业}
+\newcommand{\classname}{}
+\newcommand{\studentname}{}
+\newcommand{\studentid}{}
+\newcommand{\advisor}{}
+\newcommand{\finishdate}{}
+
+\newcommand{\abstracttitle}{这里是论文标题}
+\newcommand{\abstractauthor}{XXXXXXXXXX ~~ 专业 ~~ XXXXX班 ~~ XXX}
+\newcommand{\abstractadvisor}{XXXX}
+\newcommand{\zhabstract}{这是摘要}
+\newcommand{\zhkeywords}{关键字1，关键字2}
+\newcommand{\enabstract}{Abstract here.}
+\newcommand{\enkeywords}{Keyword1, Keyword2}
+
+\newcommand{\coverline}[2]{%
+    {{\kai \zihao{-2} \qquad\qquad\qquad #1}\quad{\zihao{3}\kai\dlmu[9.5cm]{#2}}\par}%
+}
 
 \begin{document}
-\pagenumbering{gobble} 
 
-%% 封面部分
+\pagenumbering{gobble}
+
 \begin{titlepage}
-\vspace*{0.15cm}
+    \vspace*{0.15cm}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[scale=1.25]{assets/gzhu.png}
-\end{figure}
-\vspace{0.15cm}	
-\centering
-
-{\zihao{1}\kai \textbf{本~~~科~~~毕~~~业~~~论~~文~~~（设计）}}
-
-\vspace{2.5cm}
-
-% \begin{picture}(0,0)
-%     \put(-220,-150){\zihao{3}\kai 教}
-%     \put(-220,-185){\zihao{3}\kai 务}
-%     \put(-220,-220){\zihao{3}\kai 处}
-%     \put(-220,-255){\zihao{3}\kai 制}
-% \end{picture}
-
-\begin{flushleft}
-	\hspace*{-6em}
-	\begin{minipage}{\linewidth}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 课题名称}\quad{\zihao{3} \kai
-        \begin{minipage}[b]{9.5cm}
+    \begin{figure}[H]
         \centering
-        % 太长这样换行
-        % {这里是课题名称}
-        \underline{\hbox to 9.5cm{\hfil XZXXXXXXXX\hfil}}
-        \end{minipage}}\par}
-		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 学\qquad 院}\quad{\zihao{3} \kai \dlmu[9.5cm]{这里是学院}}\par}
-		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 专\qquad 业}\quad{\zihao{3} \kai\dlmu[9.5cm]{这里是专业}}\par}
-		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 班级名称}\quad{\zihao{3} \kai\dlmu[9.5cm]{      }}\par}
-		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 学生姓名}\quad{\zihao{3} \kai\dlmu[9.5cm]{     }}\par}
-		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 学\qquad 号}\quad{\zihao{3} \kai\dlmu[9.5cm]{     }}\par}
-		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 指导老师}\quad{\zihao{3} \kai\dlmu[9.5cm]{    }}\par}
-		\vspace{0.5cm}
-		{{\kai \zihao{-2} \qquad\qquad\qquad 完成日期}\quad{\zihao{3} \kai\dlmu[9.5cm]{      }}\par}
-	\end{minipage}
-\end{flushleft}
+        \includegraphics[scale=1.25]{assets/gzhu.png}
+    \end{figure}
 
-\vspace{3cm}
-{\kai \zihao{3}{教\quad 务\quad 处\quad 制}}
+    \vspace{0.15cm}
+    \centering
+    {\zihao{1}\kai \textbf{本~~~科~~~毕~~~业~~~论~~文~~~（设计）}}
 
-\vspace{4cm}
+    \vspace{2.5cm}
+
+    \begin{flushleft}
+        \hspace*{-6em}
+        \begin{minipage}{\linewidth}
+            {{\kai \zihao{-2} \qquad\qquad\qquad 课题名称}\quad{\zihao{3}\kai
+            \begin{minipage}[b]{9.5cm}
+                \centering
+                \underline{\hbox to 9.5cm{\hfil \thesistitle\hfil}}
+            \end{minipage}}\par}
+            \vspace{0.5cm}
+
+            \coverline{学\qquad 院}{\college}
+            \vspace{0.5cm}
+            \coverline{专\qquad 业}{\major}
+            \vspace{0.5cm}
+            \coverline{班级名称}{\classname}
+            \vspace{0.5cm}
+            \coverline{学生姓名}{\studentname}
+            \vspace{0.5cm}
+            \coverline{学\qquad 号}{\studentid}
+            \vspace{0.5cm}
+            \coverline{指导老师}{\advisor}
+            \vspace{0.5cm}
+            \coverline{完成日期}{\finishdate}
+        \end{minipage}
+    \end{flushleft}
+
+    \vspace{3cm}
+    {\kai \zihao{3}{教\quad 务\quad 处\quad 制}}
+
+    \vspace{4cm}
 \end{titlepage}
 
-% 摘要与关键词
-% \pagenumbering{Roman}  % 使用罗马数字页码
-% \setcounter{page}{1}   % 页码从1开始
-{ 
+{
 \mkls
 \renewcommand{\abstractname}{\scriptsize}
-% \phantomsection
-% \addcontentsline{toc}{section}{摘要} 
-%% 摘要和关键词部分
+
 \begin{center}
-	{\hei\zihao{3}\textbf{这里是论文标题}}\par
-	{\zihao{-4}\song XXXXXXXXXX ~~ 专业 ~~ XXXXX班 ~~ XXX \par 
-		指导教师：XXXX
-	}
+    {\hei\zihao{3}\textbf{\abstracttitle}}\par
+    {\zihao{-4}\song \abstractauthor \par
+        指导教师：\abstractadvisor
+    }
 \end{center}
 
-
 \begin{onecolabstract}
-\noindent{}{\zihao{4}\textbf{摘要\qquad}}{\song \zihao{-4}{
-	这是摘要
-}
-}\par
-
-\vspace{22pt}
-\noindent{}{\zihao{4}\textbf{关键词\qquad}}{\zihao{-4}\song {
-关键字1，关键字2
-} }\par
+    \noindent{}{\zihao{4}\textbf{摘要\qquad}}{\song \zihao{-4}{\zhabstract}}\par
+    \vspace{22pt}
+    \noindent{}{\zihao{4}\textbf{关键词\qquad}}{\zihao{-4}\song{\zhkeywords}}\par
 \end{onecolabstract}
 
 \newpage
+
 \begin{onecolabstract}
-% \phantomsection
-% \addcontentsline{toc}{section}{ABSTRACT} 
-\noindent{}{\zihao{4} \textbf{ABSTRACT\qquad}}{\zihao{-4}{
-Abstract here
-}}\par
-	
-% 英文关键词
-\vspace{22pt}
-\noindent{}{\zihao{4}\textbf{KEYWORDS\qquad}}{\zihao{-4}{
-Keyword1, Keyword2
-}}\par
+    \noindent{}{\zihao{4} \textbf{ABSTRACT\qquad}}{\zihao{-4}{\enabstract}}\par
+    \vspace{22pt}
+    \noindent{}{\zihao{4}\textbf{KEYWORDS\qquad}}{\zihao{-4}{\enkeywords}}\par
 \end{onecolabstract}
 }
 
-
 \newpage
-% \phantomsection
-% \addcontentsline{toc}{section}{目录} 
-%% 目录部分
+
 \renewcommand{\contentsname}{\centerline{\zihao{-2}\textbf{目录}}}
-\linespread{1.2}\selectfont{
-	\tableofcontents
-}
+{\linespread{1.2}\selectfont\tableofcontents}
 
 \newpage
 
-%% 下面是正文
-\pagenumbering{arabic}  % 使用阿拉伯数字页码
-\setcounter{page}{1}  
-{
-% \setlength{\baselineskip}{23pt} 
-\mkls% 设置行间距
-\song% 设置宋体
-\zihao{-4} % 设置小四号字体
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
-\setcounter{section}{0} % 重置章节计数器
+{
+\mkls
+\song
+\zihao{-4}
+
 \section{前言}
 \label{sec:introduction}
+
 \subsection{研究背景与意义}
 \label{sec:background}
+
 很有意义
+
 \subsection{国内外研究现状}
+
 很有研究，比如\cite{beckSurveyMetaReinforcementLearning2023}
+
 \subsection{本文的主要贡献}
-没什么贡献，如\refig{fig:gzhu}所示
+
+没什么贡献，如\refig{fig:gzhu}所示。
 
 \subsection{论文组织结构}
 
-\begin{figure}[htbp] % use H to force the figure to be placed here
-	\centering
-	\includegraphics[width=0.8\textwidth]{assets/gzhu.png}
-	\caption{图片}
-	\label{fig:gzhu}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{assets/gzhu.png}
+    \caption{图片}
+    \label{fig:gzhu}
 \end{figure}
 
 \section{提供了一些简单的宏}
 
-使用`\verb|\refsec{sec:background}|`可以引用\refsec{sec:introduction}，使用`\verb|\refsubsec{sec:background}|`可以引用\refsubsec{sec:background}，使用`\verb|\refig{fig:gzhu}|`可以引用\refig{fig:gzhu}，使用`\verb|\refeq{eq:esv}|`可以引用公式\refeq{eq:esv}。
+使用 \verb|\refsec{sec:background}| 可以引用\refsec{sec:introduction}，
+使用 \verb|\refsubsec{sec:background}| 可以引用\refsubsec{sec:background}，
+使用 \verb|\refig{fig:gzhu}| 可以引用\refig{fig:gzhu}，
+使用 \verb|\refeq{eq:esv}| 可以引用公式\refeq{eq:esv}。
 
 \begin{equation}
-    \mathbf{e}(\phi,\bar{M}) = [1, e^{j \pi \phi},...,e^{j (\bar{M} - 1) \pi \phi}]^T 
+    \mathbf{e}(\phi,\bar{M}) = [1, e^{j \pi \phi},\ldots,e^{j (\bar{M} - 1) \pi \phi}]^T
     \label{eq:esv}
 \end{equation}
 
 \newpage
-%参考文献
+
 \renewcommand\refname{参考文献}
 \label{sec:references}
 \phantomsection
 \addcontentsline{toc}{section}{参考文献}
 \bibliography{references}
 
-
 \newpage
+
 \phantomsection
 \section*{致 \quad 谢}
 \addcontentsline{toc}{section}{致 谢}
+
 我真的谢谢
+
 \par
 \vspace{5ex}
 \rightline{\zihao{3}{XXXX\quad\qquad}}
 \rightline{二O二五年五月二日于广州}
-
 }
 
 \end{document}
